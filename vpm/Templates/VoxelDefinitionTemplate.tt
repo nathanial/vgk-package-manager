@@ -1,0 +1,45 @@
+﻿<#@ template language="C#" #>
+<#@ output extension=".voxel" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter type="System.String" name="VoxelName" #>
+
+#characteristic code
+#characteristic composition
+#characteristic textures
+#characteristic hardness
+#characteristic blast resistence
+#characteristic stackable
+#characteristic transparent
+#characteristic emits light
+
+beacon 
+	code 138
+	composition
+		5 glass
+		1 star
+		3 obsidion
+	textures 
+		beacon.png
+
+	hardness 3
+	blast resistence 15
+
+	stackable 64
+	transparent 
+
+	light source 
+		intensity 15
+		color #FFF
+
+	
+	
+
+
+
+
+
+
+	

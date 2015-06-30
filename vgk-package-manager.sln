@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vpm-server", "vpm-server\vpm-server.csproj", "{E34A6C77-36C2-430D-A145-3149952C3700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vpm", "vpm\vpm.csproj", "{E0C3DD95-71E4-4137-B13C-415A6C5B4E32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0C3DD95-71E4-4137-B13C-415A6C5B4E32}.Debug|x86.ActiveCfg = Debug|x86
+		{E0C3DD95-71E4-4137-B13C-415A6C5B4E32}.Debug|x86.Build.0 = Debug|x86
+		{E0C3DD95-71E4-4137-B13C-415A6C5B4E32}.Release|x86.ActiveCfg = Release|x86
+		{E0C3DD95-71E4-4137-B13C-415A6C5B4E32}.Release|x86.Build.0 = Release|x86
 		{E34A6C77-36C2-430D-A145-3149952C3700}.Debug|x86.ActiveCfg = Debug|x86
 		{E34A6C77-36C2-430D-A145-3149952C3700}.Debug|x86.Build.0 = Debug|x86
 		{E34A6C77-36C2-430D-A145-3149952C3700}.Release|x86.ActiveCfg = Release|x86

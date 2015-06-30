@@ -2,14 +2,14 @@
 using DBreeze;
 using System.IO;
 using System.Linq;
-using DBreeze.DataTypes;
 
-namespace VPM
-{
+namespace VPM {
+
+
 	public interface IPackageDatabase : IDisposable {
-
 		Package[] FindAllPackages();
-
+		void InsertPackage(Package package);
+		void AddPackageVersion(PackageBlob blob);
 	}
 
 	public class DBreezePackageDatabase : IPackageDatabase {
@@ -27,9 +27,22 @@ namespace VPM
 
 		public Package[] FindAllPackages(){
 			using (var tran = _engine.GetTransaction ()) {
-				return tran.SelectForward<string, DbMJSON<Package>> ("Packages")
-						   .Select (x => x.Value.Get)
-						   .ToArray();
+				return tran.SelectForward<string, byte[]> ("Packages")
+						   .Select (x => x.Value.Deserialize<Package> ())
+						   .ToArray ();
+			}
+		}
+
+		public void InsertPackage(Package package){
+			using (var tran = _engine.GetTransaction ()) {
+				tran.Insert<string, byte[]> ("Packages", package.Name, package.Serialize());
+				tran.Commit ();
+			}
+		}
+
+		public void AddPackageVersion(PackageBlob blob){
+			using (var tran = _engine.GetTransaction ()) {
+				tran.Insert<string, byte[]> ("PackageVersions", blob.Name + ":" + blob.Version, blob.Serialize());
 			}
 		}
 	}
